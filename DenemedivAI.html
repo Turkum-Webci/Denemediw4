@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DenemedivAI</title>
+    <style>
+        body{
+            background-color: gray;
+            margin: 0px;
+        }
+        #soru1{
+            bottom: 20px;
+            left: 0%;
+            width: 300px;
+            height: 100px;
+            background-color: #d8d8d8;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 20px;
+            box-shadow: 0px 0px 30px 5px #d8d8d8;
+            border: 0;
+        }
+        #hm1{
+            display: none;
+        }
+        #konter1{
+            display: flex;
+        }
+        #soru2{
+            background: rgb(100, 100, 100);
+            width: 100px;
+            border-radius: 30px;
+            font-weight: 900;
+            font-size: 20px;
+            box-shadow: 0px 0px 50px 5px rgb(100, 100, 100);
+            border: 0;
+        }
+        #b5i{
+            background:linear-gradient(to right,green, rgb(129, 18, 18));
+            background-clip: text;
+            color: transparent;
+            font-size: 40px;
+            font-weight: 900;
+            /* background-size: 200% auto; */
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            /* animation: dn1 1s infinite linear; */
+        }
+        #ichuo1{
+            position: relative;
+            left:0px;
+            width: 140px;
+            height: 100vh;
+            background-color: rgb(70, 70, 70);
+            display: none;
+        }
+        #c1{
+            font-size: 18px;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            color:rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            display: inline-block;
+            border-radius: 20px;
+        }
+        #c2{
+            position: fixed;
+            right:0px;
+            font-size: 18px;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            color:rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+            display: inline-block;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+        @keyframes dn1{
+            100% {
+background-position: left;
+            }
+            0% {
+background-position: right;
+            }
+        }
+        #csl1{
+            bottom: 0;
+position: fixed;
+font-size: 18px;
+font-weight: 800;
+font-family: Verdana, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h2 id="b5i">DenemedivAI 1.2</h2>
+    </center>
+        <div id="ichuo1">
+        <center>
+        <H3></H3>
+        </center>
+    </div>
+    <h2 id="c2"></h2>
+    <br><br>
+    <h2 id="c1"></h2>
+    <br><hr><br>
+    <div id="konter1">
+    <textarea name="" id="soru1" placeholder="DenemedivAI'ye Birşey Sorun."></textarea>
+    <button onclick="A1()" id="soru2">Gönder</button>
+    </div>
+    <center>
+    <h4 id="csl1">Konsol: </h4>
+    </center>
+<div id="hm1">
+    <input type="number" name="" id="one1">
+    <h2>+</h2>
+    <input type="number" name="" id="two2">
+    <p id="snc1"></p>
+</div>
+    <script>
+        var is = "bilmem";
+        var fs0y = "Espiri 1:eğer bir atasözünü karıştırırsan: o özlü söz olur.Neden mi? Çünkü artık söyleyeni belli :D";
+        var fs1y = "Espiri 2:açık kaynak kodu nasıl kapalı kaynak yaparsın? Kod Gelince Gözünü Kapat :D";
+        var fs2y = "Espiri 3:Uyurken Ne Nedir? İyi Uykular :D";
+
+        const salla1 = [fs0y, fs1y, fs2y];
+                const rs1ş = salla1[Math.floor(Math.random() * salla1.length)];
+        const responses = {
+            "merhaba":"Merhabalar. Bugün Nasılsın?",
+            "selam":"Selamlar. Bugün Nasılsın?",
+            "nasılsın":"İyiyim.Sen Nasılsın.",
+            "iyiyim":"Harika.",
+            "kötüyüm":"üzgünüm böyle hissetmene.",
+            "şaka yap":rs1ş,
+            "saat kaç":"Saat: " + new Date().getHours() + ":" + new Date().getMinutes(),
+            "yıl kaç":"Şuan Olduğumuz Yıl: " + parseFloat(new Date().getFullYear()) + " " + "önceki Yıl: " + parseFloat(new Date().getFullYear() - 1) + " " + "sonraki Yıl: " + parseFloat(new Date().getFullYear() +1),
+            "senin üreticilerin kim":"Denemediv tarafından yapıldım.",
+            "rastgele sayı tut":"Tamam Tuttuğum Sayı: " + Math.floor(Math.random()* 1000),
+            "adın ne":"Ben Bir Yapay Zeka Asistanıyım. Bana AI yada DenemedivAI diyebilirsiniz.",
+            "kod yaz":"Maalesef ki kod şuanda yazamıyorum. Ancak HTML ve CSS hakkında az da olsa biliyorum. Sadece aralarından İstediğini Söyle",
+            "html":"HTML, web sayfalarının yapısını tanımlamak için kullanılan bir işaretleme dilidir.Bazı Temel Kodlar:<p> Bu kodu paragraf yazmak için kullanılır.<iframe> bu kodu bir iframe açmak için kullanılır.",
+            "css":"CSS, web sayfalarının görünümümnü ve düzenini tanımlamak için kullanılan bir stil dilidir.Bazı Temel Kodlar:width: ?; bu kod bir şeyin genişliğini belirler.height: ?; bu kod bir şeyin yüksekliğini belirler.",
+            "web":"Web, internet üzerinde bilgi paylaşımını sağlayan bir sistemdir. Web sayfaları HTML, CSS ve JavaScript gibi front-end diller ve PHP, Python, C++, Java, ASP.NET ve benzeri diller ile back-end kısmı oluşturulur.",
+            "windows":"Windows, Microsoft tarafından geliştirilen bir işletim sistemidir. Windows, Kapalı Kaynak,Çoğu Uygulamayı Destekleyen,Grafik Arayüzlü ve Eskiden Beri Kullanılır. Windows'un Atası MS-DOS'tur. Windows'un İlk Sürümü Windows 1.0'dır ve 1985 yılında piyasaya sürülmüştür.",
+            "linux":"Linux, Açık kaynak kodlu,Terminal tabanlı,Dağıtımları ile ünlü olan bir işletim sistemidir. Linux, macOS gibi Unix tabanlı işletim sistemidir. Linux'un ilk sürümü 1991 yılında Linus Torvalds tarafından piyasaya sürülmüştür.Linux'un maskotu Tux adlı bir penguendir."
+            //"hangi dil ile yazıldın":"JavaScript,HTML ve CSS ile yazıldım.",
+            //"ben kimim":"Senin kim olduğunu bilmiyorum ancak senin bir insan olduğunu biliyorum :D."
+        }
+    document.addEventListener("keydown", function(event){
+if(event.key === "Enter"){
+    A1();
+}
+    });
+    var ced1 = "Gönderilmedi";
+    var csl1 = document.getElementById("csl1");
+    function A1(){
+        ced1 = "Gönderildi";
+        var e = document.getElementById("soru1").value;
+        var c1 = document.getElementById("c1");
+        var c2 = document.getElementById("c2");
+        c2.textContent = e;
+        var keys = Object.keys(responses);
+        for(var i = 0; i < keys.length; i++){
+            if(e.toLowerCase().includes(keys[i])){
+                c1.textContent = responses[keys[i]];
+                return;
+            }
+            else{
+                c1.textContent = "Şuanda Bu Sorduğunuz Sorunun Cevabını Bilmiyorum. Sorunuz: " + e;
+            }
+        }
+        //if(e.toLowerCase() === "merhaba" || e.toLowerCase() === "selam"){
+//c1.innerHTML = "Merhabalar. Bugün Nasılsın, Sana Nasıl Yardımcı Olabilirim.";
+//        }
+//        else if(e.toLowerCase() === "nasılsın"){
+//            c1.innerHTML = "İyiyim. Sen Nasılsın.";
+//        }
+//        else if(e.toLowerCase() === "iyiyim"){
+//            c1.innerHTML = "Çok Sevindim";
+//        }
+//        else if(e.toLowerCase() === "kötüyüm" || e.toLowerCase() === "kendimi iyi hissetmiyorum"){
+//            c1.innerHTML = ":(";
+//        }
+//        else if(e.toLowerCase() === "saat kaç" || e.toLowerCase() === "şuan saat kaç"){
+//            var s1 = new Date();
+//            c1.innerHTML = "Şuan Saat " + s1.getHours() + ":" + s1.getMinutes();
+//        }
+//        else if(e.toLowerCase() === "senin üreticilerin kim" || e.toLowerCase() === "seni kim yaptı"){
+//            c1.innerHTML = "Denemediv tarafından yapıldım.";
+//        }
+//        else if(e.toLowerCase() === "rastgele sayı tut" || e.toLowerCase() === "random sayı tut"){
+//            var s2 = Math.floor(Math.random()* 1000);
+//            c1.innerHTML = "Tamam Tutuyorum: " + s2;
+//        }
+if(e.toLowerCase().includes("hangi dil ile yazıldın") || e.includes("nasıl yapıldın")){
+    c1.textContent = "JavaScript,HTML ve CSS ile yazıldım.";
+    is = "y1is";
+}
+else if(e.toLowerCase().includes("ben kimim") && is == "y1is"){
+    c1.textContent = "Senin kim olduğunu tam olarak bilmiyorum. Ancak senin yazılımcı olduğunu düşünüyorum.Doğru mu?";
+}
+else if(e.toLowerCase().includes("ben kimim") && is == "bilmem"){
+    c1.textContent = "Senin kim olduğunu bilmiyorum ancak senin bir insan olduğunu biliyorum :D.";
+}
+        else if(e.toLowerCase().includes("hesap makinesi") || e.includes("hesap makinesini aç")){
+            c1.textContent = "Tabikide Açıyorum: (tab ile toplama yapabilirsin)";
+            document.getElementById("hm1").style.display = "block";
+        }
+            else{
+c1.textContent = "Şuanda Bu Sorduğunuz Sorunun Cevabını Bilmiyorum. Sorunuz: " + e;
+    };
+    }
+    document.addEventListener("keydown", function(event){
+        if(event.key === "Tab"){
+var one1 = parseFloat(document.getElementById("one1").value);
+var one2 = parseFloat(document.getElementById("two2").value);
+document.getElementById("snc1").innerHTML = one1 + one2;
+        }
+    });
+        setInterval(function(){
+            if(ced1 == "Gönderildi"){
+        ced1 = "Gönderilmişti";
+            }
+    }, 5000);
+    setInterval(function(){
+csl1.textContent = "Konsol: " + ced1;
+    }, 1);
+</script>
+</body>
+</html>

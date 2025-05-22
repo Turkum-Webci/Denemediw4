@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JALs</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/gh/Turkum-Webci/JAL.js-v3/JAL.js"></script>
+    <script>
+        J('olusturp("Merhaba");');
+        J('ai1("Merhabalar Ben Denemediv Tarafından Geliştirilmiş Bir AIyım");');
+        J('Uyar("Selam");');
+        J('consolayaz("Neden Konsola Girdin ?");');
+    </script>
+</body>
+</html>
